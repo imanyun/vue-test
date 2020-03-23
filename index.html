@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.jsの環境構築</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <p v-for="(item, i) in items" :key="i">{{i}}: {{item}}</p>
+        <p v-if="show">True now</p>
+        <button @click="btnClick">表示/非表示</button>
+    </div>
+<!-- Vue.js に必要なパッケージ -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello, kikagaku',
+            items: ['JavaScript', 'Vue.js', 'Nuxt.js'],
+            show: true
+        },
+        methods: {
+            btnClick(){
+                this.show = !this.show
+            }
+        },
+    })
+</script>
+</html>
